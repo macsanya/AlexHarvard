@@ -28,6 +28,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9ok-hR-Nad" secondAttribute="height" multiplier="1:1" id="sBR-fP-xTA"/>
                                         </constraints>
+                                        <variation key="heightClass=compact" misplaced="YES">
+                                            <rect key="frame" x="160" y="35" width="280" height="281"/>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
