@@ -139,7 +139,9 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="yMn-iD-a7T" firstAttribute="leading" secondItem="Ihm-65-YHg" secondAttribute="leading" constant="30" id="4W5-py-3T6"/>
+                                            <constraint firstItem="yMn-iD-a7T" firstAttribute="leading" secondItem="Ihm-65-YHg" secondAttribute="leading" constant="30" id="4W5-py-3T6">
+                                                <variation key="widthClass=compact" constant="90"/>
+                                            </constraint>
                                             <constraint firstAttribute="bottom" secondItem="yMn-iD-a7T" secondAttribute="bottom" constant="28" id="4lM-vN-Xzn"/>
                                             <constraint firstAttribute="centerX" secondItem="yMn-iD-a7T" secondAttribute="centerX" id="6ra-fD-8Kl"/>
                                             <constraint firstAttribute="trailing" secondItem="yMn-iD-a7T" secondAttribute="trailing" constant="218" id="Ihu-DD-uAI"/>
@@ -148,7 +150,7 @@
                                             </constraint>
                                             <constraint firstItem="yMn-iD-a7T" firstAttribute="top" secondItem="Ihm-65-YHg" secondAttribute="top" constant="28" id="Mrp-Lk-MQY"/>
                                             <constraint firstAttribute="bottom" secondItem="yMn-iD-a7T" secondAttribute="bottom" constant="60" id="N0D-km-fH0">
-                                                <variation key="heightClass=compact" constant="30"/>
+                                                <variation key="heightClass=compact" constant="45"/>
                                             </constraint>
                                             <constraint firstItem="yMn-iD-a7T" firstAttribute="top" secondItem="Ihm-65-YHg" secondAttribute="top" constant="60" id="NLy-mm-3Zo">
                                                 <variation key="heightClass=compact" constant="30"/>
@@ -156,20 +158,29 @@
                                             <constraint firstAttribute="bottom" secondItem="yMn-iD-a7T" secondAttribute="bottom" constant="72" id="U60-Wo-L3M">
                                                 <variation key="heightClass=compact-widthClass=regular" constant="60"/>
                                             </constraint>
-                                            <constraint firstItem="yMn-iD-a7T" firstAttribute="leading" secondItem="Ihm-65-YHg" secondAttribute="leading" constant="30" id="ZqN-mt-pkw"/>
+                                            <constraint firstItem="yMn-iD-a7T" firstAttribute="leading" secondItem="Ihm-65-YHg" secondAttribute="leading" constant="30" id="ZqN-mt-pkw">
+                                                <variation key="heightClass=compact" constant="55"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="75"/>
+                                            </constraint>
                                             <constraint firstItem="yMn-iD-a7T" firstAttribute="top" secondItem="Ihm-65-YHg" secondAttribute="top" constant="30" id="bvp-2J-Tq4">
                                                 <variation key="widthClass=compact" constant="15"/>
                                             </constraint>
                                             <constraint firstAttribute="bottom" secondItem="yMn-iD-a7T" secondAttribute="bottom" constant="30" id="dcn-Y2-MF2">
                                                 <variation key="widthClass=compact" constant="15"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                             </constraint>
                                             <constraint firstItem="yMn-iD-a7T" firstAttribute="top" secondItem="Ihm-65-YHg" secondAttribute="top" constant="71" id="mGS-dQ-PTm">
                                                 <variation key="heightClass=compact-widthClass=regular" constant="60"/>
                                             </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="yMn-iD-a7T" secondAttribute="trailing" constant="30" id="qMI-Bx-r71"/>
+                                            <constraint firstAttribute="trailing" secondItem="yMn-iD-a7T" secondAttribute="trailing" constant="30" id="qMI-Bx-r71">
+                                                <variation key="heightClass=compact" constant="55"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="75"/>
+                                            </constraint>
                                             <constraint firstAttribute="centerY" secondItem="yMn-iD-a7T" secondAttribute="centerY" id="rds-qH-xgs"/>
                                             <constraint firstItem="yMn-iD-a7T" firstAttribute="leading" secondItem="Ihm-65-YHg" secondAttribute="leading" constant="218" id="s9B-5z-Yj3"/>
-                                            <constraint firstAttribute="trailing" secondItem="yMn-iD-a7T" secondAttribute="trailing" constant="30" id="sIh-Hm-elr"/>
+                                            <constraint firstAttribute="trailing" secondItem="yMn-iD-a7T" secondAttribute="trailing" constant="30" id="sIh-Hm-elr">
+                                                <variation key="widthClass=compact" constant="90"/>
+                                            </constraint>
                                             <constraint firstItem="yMn-iD-a7T" firstAttribute="leading" secondItem="Ihm-65-YHg" secondAttribute="leading" constant="117" id="urD-MV-BWj">
                                                 <variation key="heightClass=compact-widthClass=regular" constant="30"/>
                                             </constraint>
@@ -225,12 +236,12 @@
                                             <mask key="constraints">
                                                 <exclude reference="4lM-vN-Xzn"/>
                                                 <exclude reference="Ihu-DD-uAI"/>
-                                                <include reference="LM3-ra-BAn"/>
+                                                <exclude reference="LM3-ra-BAn"/>
                                                 <exclude reference="Mrp-Lk-MQY"/>
                                                 <exclude reference="U60-Wo-L3M"/>
                                                 <exclude reference="mGS-dQ-PTm"/>
                                                 <exclude reference="s9B-5z-Yj3"/>
-                                                <include reference="urD-MV-BWj"/>
+                                                <exclude reference="urD-MV-BWj"/>
                                             </mask>
                                         </variation>
                                     </view>
