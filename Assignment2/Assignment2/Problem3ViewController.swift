@@ -11,8 +11,10 @@ import UIKit
 
 class Problem3ViewController: UIViewController {
     
-    @IBOutlet weak var Run: UIButton!
     
+    
+    @IBAction func Run(sender: AnyObject) {
+    }
     
     @IBOutlet weak var Output: UITextView!
     

@@ -12,9 +12,9 @@ class Problem4ViewController: UIViewController {
     
     @IBOutlet weak var Outlet: UITextView!
 
-    
-    @IBOutlet weak var Run: UIButton!
-    
+        
+    @IBAction func Run(sender: AnyObject) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Problem 4";
