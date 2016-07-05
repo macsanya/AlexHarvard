@@ -10,7 +10,9 @@ import UIKit
 
 class Problem2ViewController: UIViewController {
     
+    @IBOutlet weak var Run: UIView!
   
+    @IBOutlet weak var Output: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
