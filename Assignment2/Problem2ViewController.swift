@@ -1,5 +1,5 @@
 //
-//  Problem4ViewController.swift
+//  Problem2ViewController.swift
 //  Assignment2
 //
 //  Created by Сашок  on 7/5/16.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class Problem4ViewController: UIViewController {
+class Problem2ViewController: UIViewController {
     
-
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Problem 4";
+        self.navigationItem.title = "Problem 2";
         // Do any additional setup after loading the view, typically from a nib.
     }
     

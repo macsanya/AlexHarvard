@@ -1,5 +1,5 @@
 //
-//  Problem2ViewController.swift
+//  Problem4ViewController.swift
 //  Assignment2
 //
 //  Created by Сашок  on 7/5/16.
@@ -8,18 +8,16 @@
 
 import UIKit
 
-class Problem2ViewController: UIViewController {
+class Problem4ViewController: UIViewController {
+    
+    @IBOutlet weak var Outlet: UITextView!
+
     
     @IBOutlet weak var Run: UIButton!
     
-    
-    
-    @IBOutlet weak var Output: UITextView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Problem 2";
+        self.navigationItem.title = "Problem 4";
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -27,7 +25,6 @@ class Problem2ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
 }
