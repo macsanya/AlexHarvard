@@ -10,10 +10,11 @@ import UIKit
 
 class Problem2ViewController: UIViewController {
     
-    var printerString = String()
     
+    var printerString = String()
+
     @IBOutlet weak var output: UIView!
-   
+    
     
     
     typealias LifeGrid = [[Bool]]
@@ -23,7 +24,9 @@ class Problem2ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "Problem 2";
-         output.text = printerString
+       
+        
+        
     }
     
     @IBAction func run(sender: AnyObject) {
@@ -52,7 +55,7 @@ class Problem2ViewController: UIViewController {
         for row in 0..<dimensions {
             for col in 0..<dimensions {
                 let isAlive: Bool = before[row][col]
-                var livingNeighborsCount = getLivingNeighborCount(Point(row: row, col: col), grid: before, dimensions: dimensions)
+                let livingNeighborsCount = getLivingNeighborCount(Point(row: row, col: col), grid: before, dimensions: dimensions)
                 
                 // apply rules based on current state and count of live neighbors
                 
@@ -78,8 +81,7 @@ class Problem2ViewController: UIViewController {
                     default:
                         after[row][col] = before[row][col]
                     }
-                default:
-                    break
+                
                 }
             }
         }
@@ -148,15 +150,15 @@ class Problem2ViewController: UIViewController {
        
 
         }
-        var myString = String(total)
-        println(myString)
-        printerString = myString
+        let myString = String(total)
+        print(myString)
+       
         
     
     }
     
     func printGrid(grid: LifeGrid, dimensions: Int) {
-        println("-----------------------")
+        print("-----------------------")
         for row in 0..<dimensions {
             var output = ""
             for col in 0..<dimensions {
@@ -165,9 +167,9 @@ class Problem2ViewController: UIViewController {
  
  
             }
-          println(output)
+          print(output)
         }
-        println("-----------------------")
+        print("-----------------------")
     }
 
 }
