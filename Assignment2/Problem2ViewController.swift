@@ -10,78 +10,127 @@ import UIKit
 
 class Problem2ViewController: UIViewController {
     
-  
+    @IBOutlet weak var output: UIView!
     
-    @IBAction func Run(sender: AnyObject) {
-        
-       typealias LifeGrid = [[Bool]]
-        
-        class TwoDimensional {
-            let columnsMax : Int
-            let rowsMax : Int
-            var twoDimensionalArray : LifeGrid
-            
-            
-            
-            
-            
-            init(columns: Int, rows: Int) {
-                // Validate the inputs
-                if (columns < 0) {
-                    columnsMax = 0
-                } else {
-                    columnsMax = columns
-                }
-                
-                if (rows < 0) {
-                    rowsMax = 0
-                } else {
-                    rowsMax = rows
-                }
-                
-                // Instantiate the array
-                twoDimensionalArray = Array(count: rowsMax,
-                    repeatedValue: Array(count: columnsMax,
-                        
-                        repeatedValue: 0))
-                // Set it to a random value
-                for col in 0..<columnsMax {
-                    for row in 0..<rowsMax {
-                        if arc4random_uniform(3) == 1 {
-                            // set current cell to alive
-                        twoDimensionalArray[row][col] = true
-                        }
-                        else {
-                            twoDimensionalArray[row][col] = false
-                           }
-                        }
-                    }
-                }
-            }
-        
-        
-        
-    }
-    
-    
- 
-   
-    
-   
-  
-    @IBOutlet weak var Output: UIView!
+    typealias LifeGrid = [[Bool]]
+    typealias Point = (row: Int, col: Int)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Problem 2";
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationItem.title = "Problem 2";
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func run(sender: AnyObject) {
+        
+        let dimensions = 10
+        
+        var before = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue: false))
+
+        // fill in the before array with 1/3 alive cells
+        for row in 0..<dimensions {
+            for col in 0..<dimensions {
+                if arc4random_uniform(3) == 1 {
+                    before[row][col] = true
+                } else {
+                    before[row][col] = false
+                }
+            }
+        }
+        
+        var after = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue: false))
+        
+        // compute after array
+        for row in 0..<dimensions {
+            for col in 0..<dimensions {
+                let isAlive: Bool = before[row][col]
+                var livingNeighborsCount = getLivingNeighborCount(Point(row: row, col: col), grid: before, dimensions: dimensions)
+                
+                // apply rules based on current state and count of live neighbors
+                
+                switch isAlive {
+                case true:
+                    switch livingNeighborsCount {
+                    case 0...1:
+                        after[row][col] = false
+                    case 2, 3:
+                        after[row][col] = true
+                    case 3...8:
+                        after[row][col] = false
+                    default:
+                        after[row][col] = before[row][col]
+                    }
+                case false:
+                    switch livingNeighborsCount {
+                    case 3:
+                        after[row][col] = true
+                    default:
+                        after[row][col] = before[row][col]
+                    }
+                default:
+                    break
+                }
+            }
+        }
+        
+        printGrid(before, dimensions: dimensions)
+        printGrid(after, dimensions: dimensions)
     }
     
+    func getLivingNeighborCount(point: Point, grid: LifeGrid, dimensions: Int) -> Int {
+        var count = 0
+        
+        for neighborRow in point.row-1...point.row+1 {
+            for neighborCol in point.col-1...point.col+1 {
+                if neighborRow == point.row && neighborCol == point.col {
+                    break
+                }
+                
+                var adjustedNeighborRow = neighborRow
+                var adjustedNeighborCol = neighborCol
+                
+                
+                
+                if neighborRow < 0 {
+                    adjustedNeighborRow = dimensions + neighborRow
+                }
+                else if  neighborRow >= dimensions {
+                    adjustedNeighborRow = 0
+                }
+                
+                
+                
+                
+                if neighborCol < 0 {
+                    adjustedNeighborCol = dimensions + neighborCol
+                }
+                else if neighborCol >= dimensions {
+                    adjustedNeighborCol = 0
+                }
+                
+                
+                
+                
+                if grid[adjustedNeighborRow][adjustedNeighborCol] {
+                    count += 1
+                }
+                
+            }
+        }
+        
+        return count
+    }
     
+    func printGrid(grid: LifeGrid, dimensions: Int) {
+        println("-----------------------")
+        for row in 0..<dimensions {
+            var output = ""
+            for col in 0..<dimensions {
+                output = output.stringByAppendingString(grid[row][col] ? " 1" : " 0")
+            }
+            println(output)
+        }
+        println("-----------------------")
+    }
 }
 
