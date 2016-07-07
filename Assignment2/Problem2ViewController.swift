@@ -10,7 +10,11 @@ import UIKit
 
 class Problem2ViewController: UIViewController {
     
+    var printerString = String()
+    
     @IBOutlet weak var output: UIView!
+   
+    
     
     typealias LifeGrid = [[Bool]]
     typealias Point = (row: Int, col: Int)
@@ -19,11 +23,15 @@ class Problem2ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "Problem 2";
+         output.text = printerString
     }
     
     @IBAction func run(sender: AnyObject) {
         
         let dimensions = 10
+        
+     
+        
         
         var before = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue: false))
 
@@ -49,12 +57,15 @@ class Problem2ViewController: UIViewController {
                 // apply rules based on current state and count of live neighbors
                 
                 switch isAlive {
+                   
+                    
                 case true:
                     switch livingNeighborsCount {
                     case 0...1:
                         after[row][col] = false
                     case 2, 3:
                         after[row][col] = true
+                      
                     case 3...8:
                         after[row][col] = false
                     default:
@@ -75,10 +86,14 @@ class Problem2ViewController: UIViewController {
         
         printGrid(before, dimensions: dimensions)
         printGrid(after, dimensions: dimensions)
+        countGrid(after, dimensions: dimensions)
+        
     }
     
     func getLivingNeighborCount(point: Point, grid: LifeGrid, dimensions: Int) -> Int {
         var count = 0
+        
+
         
         for neighborRow in point.row-1...point.row+1 {
             for neighborCol in point.col-1...point.col+1 {
@@ -121,16 +136,39 @@ class Problem2ViewController: UIViewController {
         return count
     }
     
+    func countGrid(grid: LifeGrid, dimensions: Int) {
+        var total = 0
+        
+        for row in 0..<dimensions {
+            for col in 0..<dimensions {
+                if grid[row][col] == true { total += 1
+                    
+                }
+            }
+       
+
+        }
+        var myString = String(total)
+        println(myString)
+        printerString = myString
+        
+    
+    }
+    
     func printGrid(grid: LifeGrid, dimensions: Int) {
         println("-----------------------")
         for row in 0..<dimensions {
             var output = ""
             for col in 0..<dimensions {
                 output = output.stringByAppendingString(grid[row][col] ? " 1" : " 0")
+               
+ 
+ 
             }
-            println(output)
+          println(output)
         }
         println("-----------------------")
     }
+
 }
 
