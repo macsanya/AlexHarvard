@@ -39,7 +39,6 @@ class Problem2ViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func run(sender: AnyObject) {
-        
         let dimensions = 10
         
      
