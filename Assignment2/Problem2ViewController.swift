@@ -8,14 +8,21 @@
 
 import UIKit
 
-class Problem2ViewController: UIViewController {
+class Problem2ViewController: UIViewController, UITextFieldDelegate {
     
     
     var printerString = String()
 
-    @IBOutlet weak var output: UIView!
+    
+    @IBOutlet weak var output: UILabel!
     
     
+    @IBAction func ShowText(sender: AnyObject){
+        self.output.text =  printerString
+        
+        
+    }
+
     
     typealias LifeGrid = [[Bool]]
     typealias Point = (row: Int, col: Int)
@@ -24,10 +31,12 @@ class Problem2ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "Problem 2";
-       
+      
+        
         
         
     }
+    
     
     @IBAction func run(sender: AnyObject) {
         
@@ -146,13 +155,17 @@ class Problem2ViewController: UIViewController {
                 if grid[row][col] == true { total += 1
                     
                 }
+                
+                
             }
        
 
         }
+        
+        print (total)
         let myString = String(total)
-        print(myString)
-       
+        output.text? = (myString)
+        
         
     
     }
@@ -170,7 +183,8 @@ class Problem2ViewController: UIViewController {
           print(output)
         }
         print("-----------------------")
+        
     }
-
+  
 }
 
