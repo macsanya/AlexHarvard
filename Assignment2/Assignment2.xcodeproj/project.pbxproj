@@ -167,6 +167,7 @@
 		2CBD054A1D2B7AB70009DBBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = QuadComputing;
 				TargetAttributes = {
